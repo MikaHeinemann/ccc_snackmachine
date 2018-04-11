@@ -2,42 +2,50 @@
 public class Level3 {
 
 	public static void main(String[] args) {
-		String feldgroeﬂes = args[0];
-		char[] temp = feldgroeﬂes.toCharArray();
+		char[] temp1 = args[0].toCharArray();
 		int zahl1=0;
 		String szahl2;
 		int zahl2;
 		int feldgroeﬂe;
-		int zahl3;
+		int zahl3=0;
+		String szahl4;
 		int zahl4;
 		for (int i= 65; i<91;i++) {
-			if(temp[0] == i) {
+			if(temp1[0] == i) {
 				zahl1 = i-64;
 			}
 		}
-		if (temp.length==3) {
-			szahl2 = new String(temp);
+		if (temp1.length==3) {
+			szahl2 = new String(temp1);
 			zahl2 = Integer.parseInt(szahl2.substring(1));
 		}else {
-			zahl2 = (int)temp[1];
+			szahl2 = new String(temp1);
+			zahl2 = Integer.parseInt(szahl2.substring(1));
 		}
-		feldgroeﬂe = zahl1 * zahl2;	
+		feldgroeﬂe = zahl1 * zahl2;					
 		
-		System.out.println(args[129]);
-		System.out.println(args[130]);
-		System.out.println(args[131]);
-		System.out.println(args[132]);
+		char[] temp2 = args[(feldgroeﬂe+1)].toCharArray();
+		for (int i= 65; i<91;i++) {
+			if(temp2[0] == i) {
+				zahl3 = i-64;
+			}
+		}
+		if (temp2.length==3) {
+			szahl4 = new String(temp2);
+			zahl4 = Integer.parseInt(szahl4.substring(1));
+		}else {
+			szahl4 = new String(temp2);
+			zahl4 = Integer.parseInt(szahl4.substring(1));
+		}
+		int zahl = (zahl3*zahl4)+1;
 		
-		
-		
-		
-		int betrag = Integer.parseInt(args[0]);
-		int anzahlMuenzen = Integer.parseInt(args[132]);
+		int betrag = Integer.parseInt(args[zahl]);
+		int anzahlMuenzen = Integer.parseInt(args[(feldgroeﬂe+2)]);
 		int muenzenges = 0;
 		
 		for(int m = 0; m<anzahlMuenzen;m++) {
 			int offset = 2;
-			muenzenges += Integer.parseInt(args[offset+m]);
+			muenzenges += Integer.parseInt(args[offset+m+feldgroeﬂe+1]);
 		}
 		int cent1 = 0;
 		int cent2 = 0;
@@ -82,10 +90,6 @@ public class Level3 {
 		}else {
 			System.out.println("MISSING "+((muenzenges-betrag)*(-1)));
 		}
-	}
 
-	private static String Str(char c) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
