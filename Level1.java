@@ -10,7 +10,11 @@ public class Level1 {
 			int offset = 2;
 			muenzenges += Integer.parseInt(args[offset+m]);
 		}
-		System.out.println(muenzenges-betrag);
+		if (muenzenges-betrag>= 0) {
+			System.out.println("CHANGE "+(muenzenges-betrag));
+		}else {
+			System.out.println("MISSING "+((muenzenges-betrag)*(-1)));
+		}
 	}
 
 }
